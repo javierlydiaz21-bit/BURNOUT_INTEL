@@ -7,6 +7,4 @@ env/
 venv/
 ENV/
 .streamlit/
-*.pkl
-*.json
 batch_prueba_burnout.csv

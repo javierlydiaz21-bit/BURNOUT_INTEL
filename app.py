@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import os
+import sys
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -527,8 +528,8 @@ def check_and_retrain():
         st.warning("Nuevos datos detectados — reiniciando motores de inferencia.")
         with st.spinner("Actualizando modelos..."):
             try:
-                subprocess.run(["python", "train_burnout_nn.py"], check=True)
-                subprocess.run(["python", "train_burnout_logistic.py"], check=True)
+                subprocess.run([sys.executable, "train_burnout_nn.py"], check=True)
+                subprocess.run([sys.executable, "train_burnout_logistic.py"], check=True)
                 st.success("Modelos actualizados.")
                 st.cache_resource.clear()
                 return True
